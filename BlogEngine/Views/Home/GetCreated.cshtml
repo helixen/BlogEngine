@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Models.Post>
+
+@{
+    ViewData["Title"] = "GetCreated";
+}
+
+<h1>Pending to Submit</h1>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Home", null, new { @class = "btn btn-primary mr-1" })
+</p>
+@foreach (var item in Model)
+{
+    <div class="container mb-5 border-bottom border-primary">
+        <div class="row my-2">
+            <div class="col-2">
+
+            </div>
+            <div class="col-4">
+                <input type="hidden" value="@item.Id" />
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-4">
+                <span class="font-weight-bold small">Created On:</span>
+                <span class="small">@Html.DisplayFor(modelItem => item.CreatedDate)</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="justify-content-end">
+                    @Html.DisplayFor(modelItem => item.Content)
+                </p>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col">
+                @Html.ActionLink("Edit", "Edit", "Home", new { id = item.Id }, new { @class = "btn btn-primary mr-1" })
+                @Html.ActionLink("Submit", "Submit", "Home", new { id = item.Id }, new { @class = "btn btn-success mr-1" })
+            </div>
+        </div>
+
+    </div>
+}
+<div>
+    <a asp-action="Index">Back to Public Posts</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

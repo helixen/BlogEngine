@@ -1,0 +1,70 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BlogEngine</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BlogEngine</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        @if (HttpContextAccessor.HttpContext.Request.Cookies["_UserName"] == null)
+                        {
+                            <li class="nav-item ml-5">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
+                                    Sign In
+                                </button>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <span class="text-dark font-weight-bold nav-link">Welcome: @HttpContextAccessor.HttpContext.Request.Cookies["_UserName"]</span>
+                            </li>
+                            <li class="nav-item">
+                                <span class="text-dark font-weight-bold nav-link">@HttpContextAccessor.HttpContext.Request.Cookies["_UserRole"]</span>
+                            </li>
+                            <li class="nav-item ml-5">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="SignOut">Sign out</a>
+                            </li>
+                        }
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - BlogEngine - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <!-- Modal -->
+    @{await Html.RenderPartialAsync("/Views/User/_Authenticate.cshtml", new Models.User());}
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

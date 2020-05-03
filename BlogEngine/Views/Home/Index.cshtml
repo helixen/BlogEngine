@@ -1,0 +1,98 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<Models.Post>
+
+<h2>Public Posts</h2>
+
+<p>
+    @if (HttpContextAccessor.HttpContext.Request.Cookies["_UserRole"] == "Writer")
+    {
+        @Html.ActionLink("Create New", "Create", "Home", null, new { @class = "btn btn-primary mr-1" })
+        @Html.ActionLink("Pending to submit", "GetCreated", "Home", null, new { @class = "btn btn-primary mr-1" })
+        @Html.ActionLink("Rejected", "GetRejected", "Home", null, new { @class = "btn btn-primary mr-1" })
+
+    }
+    @if (HttpContextAccessor.HttpContext.Request.Cookies["_UserRole"] == "Editor")
+    {
+        @Html.ActionLink("Posts for approval", "GetSubmitted", "Home", null, new { @class = "btn btn-primary mr-1" })
+    }
+
+
+</p>
+@foreach (var item in Model)
+{
+    <div class="container mb-5 border-bottom border-primary">
+        <div class="row my-2">
+            <div class="col-2">
+
+            </div>
+            <div class="col-4">
+                <input type="hidden" value="@item.Id" />
+            </div>
+            <div class="col-2">
+                <span class="font-weight-bold small">Author:</span>
+                <span class="small">@Html.DisplayFor(modelItem => item.AuthorName)</span>
+            </div>
+            <div class="col-4">
+                <span class="font-weight-bold small">Published:</span>
+                <span class="small">@Html.DisplayFor(modelItem => item.PublishedDate)</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="justify-content-end">
+                    @Html.DisplayFor(modelItem => item.Content)
+                </p>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-11"></div>
+            <div class="col-1">
+                @if (HttpContextAccessor.HttpContext.Request.Cookies["_UserRole"] == "Editor")
+                {
+                    @Html.ActionLink("Delete", "Delete", "Home", new { id = item.Id }, new { @class = "btn btn-danger" })
+                }
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                @{await Html.RenderPartialAsync("/Views/Comment/_Create.cshtml", new Models.Comment { PostId = item.Id });}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span class="font-weight-bold">Comments</span>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var subitem in item.Comments)
+            {
+                <div class="container bg-secondary my-1 text-light p-3 rounded">
+                    <div class="row">
+                        <div class="col">
+                            <p>@Html.DisplayFor(modelItem => subitem.Content)</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <span class="small">By: </span>
+                            <span class="small">
+                                @Html.DisplayFor(modelItem => subitem.AuthorName)
+                            </span>
+                            <span class="small ml-2">On: </span>
+                            <span class="small">
+                                @Html.DisplayFor(modelItem => subitem.CreatedDate)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

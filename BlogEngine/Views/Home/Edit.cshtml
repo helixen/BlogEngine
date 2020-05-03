@@ -1,0 +1,46 @@
+﻿@model Models.Post
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Post</h4>
+<hr />
+<div class="row">
+    <div class="col">
+
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <textarea asp-for="Content" class="form-control" rows="15"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div>
+                <input hidden asp-for="Id" />
+                <input hidden asp-for="Status" />
+                <input hidden asp-for="CreatedDate" />
+                <input hidden asp-for="AuhorUserId" />
+                <input hidden asp-for="PublishedDate" />
+                <input hidden asp-for="SubmittedDate" />
+                <input hidden asp-for="RejectedDate" />
+                <input hidden asp-for="DeletedDate" />
+                <input hidden asp-for="ApproverUserId" />
+
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to Public Posts</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

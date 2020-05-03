@@ -1,0 +1,315 @@
+{
+	"info": {
+		"_postman_id": "23b2f749-ab52-44ba-a442-b2bafacb3bb5",
+		"name": "BlogEngine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetPublishedPosts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:63530/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63530",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSubmittedPosts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:63530/api/Posts/GetSubmitted",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63530",
+					"path": [
+						"api",
+						"Posts",
+						"GetSubmitted"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCreatedPosts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:63530/api/Posts/GetCreated/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63530",
+					"path": [
+						"api",
+						"Posts",
+						"GetCreated",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreatePost",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"AuhorUserId\" : 1,\n    \"Content\" : \"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:63530/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63530",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SubmitPost",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:63530/api/Posts/submit/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63530",
+					"path": [
+						"api",
+						"Posts",
+						"submit",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ApprovePost",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:63530/api/Posts/approve/4/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63530",
+					"path": [
+						"api",
+						"Posts",
+						"approve",
+						"4",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RejectPost",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:63530/api/Posts/reject/4/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63530",
+					"path": [
+						"api",
+						"Posts",
+						"reject",
+						"4",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePost",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:63530/api/Posts/4/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63530",
+					"path": [
+						"api",
+						"Posts",
+						"4",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePost",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Id\":4,\n\t\"AuhorUserId\" : 1,\n    \"Content\" : \"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Hola, como estás?\",\n    \"status\": 2,\n    \"createdDate\": \"2020-04-30T09:59:59.303\",\n    \"publishedDate\": null,\n    \"submittedDate\": \"2020-04-30T16:20:57.973\",\n    \"rejectedDate\": \"2020-04-30T16:24:49.23\",\n    \"deletedDate\": \"2020-04-30T16:30:47.813\",\n    \"auhorUserId\": 1,\n    \"approverUserId\": 2,\n    \"authorName\": null,\n    \"editorName\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:63530/api/Posts/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63530",
+					"path": [
+						"api",
+						"Posts",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPost",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:63530/api/Posts/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63530",
+					"path": [
+						"api",
+						"Posts",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateComment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Content\":\"The standard Lorem Ipsum passage, used since the 1500s\",\n\t\"PostId\":5,\n\t\"AuthorUserId\":2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:63530/api/Comment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63530",
+					"path": [
+						"api",
+						"Comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AuthenticateUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:63530/api/User/joewk/654321",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "63530",
+					"path": [
+						"api",
+						"User",
+						"joewk",
+						"654321"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Api.Application.Contracts\Api.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Api.Business\Api.Business.csproj" />
+    <ProjectReference Include="..\Api.DataAccess.Contracts\Api.DataAccess.Contracts.csproj" />
+    <ProjectReference Include="..\Api.DataAccess\Api.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>
