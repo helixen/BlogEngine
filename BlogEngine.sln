@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.87
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogEngine", "BlogEngine\BlogEngine.csproj", "{D9D62593-650A-4C20-95E0-BD7A8FA3ED93}"
 EndProject
@@ -15,9 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Common", "Api.Common\Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Application", "Api.Application\Api.Application.csproj", "{48636F51-67F4-48B8-BA33-B76EEBFDD100}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Application", "1.Application", "{88C2D18F-70F1-4E80-A53F-50ED03F6FC32}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Business", "2.Business", "{999DC777-CF1B-4557-A240-46FAB2595177}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.API", "1.API", "{88C2D18F-70F1-4E80-A53F-50ED03F6FC32}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.DataAccess", "3.DataAccess", "{24C4411F-4DE3-4110-885F-8978384D1B29}"
 EndProject
@@ -25,25 +23,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.DataAccess", "Api.DataA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.DataAccess.Contracts", "Api.DataAccess.Contracts\Api.DataAccess.Contracts.csproj", "{E303002F-271B-4EEC-8335-81FC7C6C520E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Common", "4.Common", "{0B0871D3-90B1-46A0-A999-BCB5047B73E0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.WebClient", "2.WebClient", "{A2C42B88-59C5-4927-8358-8CBAE9FC875C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Web", "5.Web", "{A2C42B88-59C5-4927-8358-8CBAE9FC875C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6.DataBase", "6.DataBase", "{462596A0-E93A-43D7-AB7A-BD2A45DCB6BE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.DataBase", "5.DataBase", "{462596A0-E93A-43D7-AB7A-BD2A45DCB6BE}"
 	ProjectSection(SolutionItems) = preProject
 		DataBase\1_BlogEngineDB_structure.sql = DataBase\1_BlogEngineDB_structure.sql
 		DataBase\2_BlogEngineDB_data.sql = DataBase\2_BlogEngineDB_data.sql
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7.Testing", "7.Testing", "{54BD778D-6582-45AF-9980-4DFF4518E76D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Testing", "4.Testing", "{54BD778D-6582-45AF-9980-4DFF4518E76D}"
 	ProjectSection(SolutionItems) = preProject
 		Testing\BlogEngine.postman_collection.json = Testing\BlogEngine.postman_collection.json
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0F33B68E-9220-4F06-AF49-128B19922785}"
-	ProjectSection(SolutionItems) = preProject
-		README.txt = README.txt
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogEngineApiTest", "BlogEngineApiTest\BlogEngineApiTest.csproj", "{EEC37313-628A-4E41-9D7F-08F85C7E7593}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,19 +76,24 @@ Global
 		{E303002F-271B-4EEC-8335-81FC7C6C520E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E303002F-271B-4EEC-8335-81FC7C6C520E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E303002F-271B-4EEC-8335-81FC7C6C520E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEC37313-628A-4E41-9D7F-08F85C7E7593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEC37313-628A-4E41-9D7F-08F85C7E7593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEC37313-628A-4E41-9D7F-08F85C7E7593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEC37313-628A-4E41-9D7F-08F85C7E7593}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D9D62593-650A-4C20-95E0-BD7A8FA3ED93} = {A2C42B88-59C5-4927-8358-8CBAE9FC875C}
-		{D877E168-186C-468E-B772-71F4636034F3} = {A2C42B88-59C5-4927-8358-8CBAE9FC875C}
+		{D877E168-186C-468E-B772-71F4636034F3} = {88C2D18F-70F1-4E80-A53F-50ED03F6FC32}
 		{FE606AFC-B5A1-4C85-A8B4-A3275617C201} = {88C2D18F-70F1-4E80-A53F-50ED03F6FC32}
-		{2209E333-16FD-4659-9F51-3FB871CD5624} = {999DC777-CF1B-4557-A240-46FAB2595177}
-		{E04095AA-9BC5-4889-8772-D537C640DBE3} = {0B0871D3-90B1-46A0-A999-BCB5047B73E0}
+		{2209E333-16FD-4659-9F51-3FB871CD5624} = {88C2D18F-70F1-4E80-A53F-50ED03F6FC32}
+		{E04095AA-9BC5-4889-8772-D537C640DBE3} = {88C2D18F-70F1-4E80-A53F-50ED03F6FC32}
 		{48636F51-67F4-48B8-BA33-B76EEBFDD100} = {88C2D18F-70F1-4E80-A53F-50ED03F6FC32}
 		{A8284D28-429F-4A42-9614-CC475887CCC4} = {24C4411F-4DE3-4110-885F-8978384D1B29}
 		{E303002F-271B-4EEC-8335-81FC7C6C520E} = {24C4411F-4DE3-4110-885F-8978384D1B29}
+		{EEC37313-628A-4E41-9D7F-08F85C7E7593} = {54BD778D-6582-45AF-9980-4DFF4518E76D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E68FD3FD-CE45-4DF3-BF72-6F7C6FBDA3F2}

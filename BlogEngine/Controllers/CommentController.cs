@@ -46,7 +46,7 @@ namespace BlogEngine.Controllers
                 }
             }
 
-            ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+            ModelState.AddModelError(string.Empty, "Server Error.");
 
             return RedirectToAction("Index","Home");
         }

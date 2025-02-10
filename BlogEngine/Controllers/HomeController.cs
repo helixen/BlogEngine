@@ -52,7 +52,7 @@ namespace BlogEngine.Controllers
                 {
                     //Error response received   
                     posts = Enumerable.Empty<Post>();
-                    ModelState.AddModelError(string.Empty, "Server error try after some time.");
+                    ModelState.AddModelError(string.Empty, "Server error.");
                 }
             }
             return View(posts);
