@@ -14,7 +14,7 @@ namespace Api.DataAccess.EntityConfiguration
     {
         public static void SetEntityBuilder(EntityTypeBuilder<PostEntity> entityBuilder)
         {
-            entityBuilder.ToTable("POSTS"); //Esta propiedad se setea dependiendo del nombre de la Entity, por ejemplo aqui se llama PostEntity, si no se setea crea la tabla con ese nombre
+            entityBuilder.ToTable("POSTS"); 
             entityBuilder.HasKey(x => x.Id);
             entityBuilder.Property(x => x.Id).IsRequired();
             

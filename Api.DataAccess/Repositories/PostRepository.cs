@@ -28,19 +28,6 @@ namespace Api.DataAccess.Repositories
             return userEntity;
         }
 
-        public async Task<PostEntity> Update(PostEntity postEntity)
-        {
-            var objecExists = await Exist(postEntity.Id);
-            if (objecExists)
-            {
-                var updateEntity = _apiDBContext.Posts.Update(postEntity);
-                await _apiDBContext.SaveChangesAsync();
-                return updateEntity.Entity;
-            }
-            else
-                throw new Exception("Object not found");
-        }
-
         public async Task<PostEntity> Update(long id, PostEntity postEntity)
         {
             var result = await _apiDBContext.Posts.FirstOrDefaultAsync(x => x.Id == id);
@@ -61,13 +48,24 @@ namespace Api.DataAccess.Repositories
             return result;
         }
 
+        public async Task<PostEntity> Update(PostEntity postEntity)
+        {
+            if (await Exist(postEntity.Id))
+            {
+                var updateEntity = _apiDBContext.Posts.Update(postEntity);
+                await _apiDBContext.SaveChangesAsync();
+                return updateEntity.Entity;
+            }
+            else
+            {
+                throw new Exception("Object not found");
+            }
+        }
+
         public async Task<PostEntity> Get(long idEntity)
         {
             var result = await _apiDBContext.Posts.FirstOrDefaultAsync(x => x.Id == idEntity);
-            if (result == null)
-                throw new Exception("Object not found");
-
-            return result;
+            return result ?? throw new Exception("Object not found");
         }
 
         public async Task DeleteAsync(long idEntity)
@@ -79,13 +77,9 @@ namespace Api.DataAccess.Repositories
             await _apiDBContext.SaveChangesAsync();
         }
 
-        public Task<bool> Exist(long id)
+        public async Task<bool> Exist(long id)
         {
-            var result = _apiDBContext.Posts.Where(x => x.Id.Equals(id));
-            bool answer = true;
-            if (result == null)
-                answer = false;
-            return Task.FromResult(answer);
+            return await _apiDBContext.Posts.AnyAsync(x => x.Id == id);
         }
 
         public async Task<IEnumerable<PostEntity>> GetAll()
@@ -95,10 +89,10 @@ namespace Api.DataAccess.Repositories
 
         public async Task<IEnumerable<PostEntity>> GetByStatus(PostStatus status)
         {
-                var result = _apiDBContext.Posts.Where(x => x.Status.Equals(status))
-                    .Include(x => x.Comments).OrderByDescending(x => x.CreatedDate);
+            var result = _apiDBContext.Posts.Where(x => x.Status.Equals(status))
+                .Include(x => x.Comments).OrderByDescending(x => x.CreatedDate);
 
-                return await result.ToListAsync();
+            return await result.ToListAsync();
         }
         public async Task<IEnumerable<PostEntity>> GetByStatus(PostStatus status, long userId)
         {
@@ -106,9 +100,5 @@ namespace Api.DataAccess.Repositories
             return await result.ToListAsync();
         }
 
-        public Task<PostEntity> Update(int id, PostEntity element)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

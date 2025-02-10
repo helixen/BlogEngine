@@ -63,13 +63,6 @@ namespace BlogEngineAPI.Controllers
             return Ok(post);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPost(long id, Post post)
-        {
-            await _service.Update(id, post);
-            return Ok();
-        }
-
         [HttpGet("Submit/{id:long}")]
         public async Task<IActionResult> Submit(long id)
         {

@@ -77,18 +77,6 @@ namespace Api.Application.Services
             return PostMapper.Map(entity);
         }
 
-        public async Task<Post> Update(long id, Post post)
-        {
-            if (id != post.Id)
-            {
-                throw new Exception("Inconsistent object identifiers.");
-            }
-
-            var entity = await _postRepository.Update(PostMapper.Map(post));
-
-            return PostMapper.Map(entity);
-        }
-
         public async Task<Post> UpdateStatus(long id, PostStatus status, long? editorId = null)
         {
             var result= Get(id);
